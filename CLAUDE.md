@@ -16,12 +16,15 @@ discovery paths symlink to the canonical `.agents` payload. After
 
 ```sh
 ./green build
+./green diff
 ./green create --dry-run
 COLORS_PAR_DOTFILES_PREVENT_OVERWRITE=false ./green create
 ```
 
-A real create overwrites the package's managed files in `$HOME` and requires
-explicit authorization plus the one-run environment override above. Keep the
+Diff is read-only: it renders first, reports drift without failing, and redacts
+target-only contents. A real create overwrites the package's managed files in
+`$HOME` and requires explicit authorization plus the one-run environment
+override above. Keep the
 committed guard true. `delete` is unsupported.
 
 Never export `COLORS_PAR_PROFILE`. No credentials are currently required. If

@@ -15,6 +15,8 @@ jobs:
           bb: latest
       - name: Build without credentials
         run: ./green build
+      - name: Informational diff without credentials
+        run: ./green diff
       - name: Dry run without credentials
         run: ./green create --dry-run
       - name: Launcher copy is synchronized

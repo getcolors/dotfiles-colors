@@ -7,12 +7,15 @@ selects Ubuntu.
 
 ```sh
 ./green build
+./green diff
 ./green create --dry-run
 COLORS_PAR_DOTFILES_PREVENT_OVERWRITE=false ./green create
 ```
 
-Build output is generated under `.colors/dotfiles-colors/dotfiles/`. A real
-create writes the managed files into `$HOME` and verifies every copy. Delete is
+Build output is generated under `.colors/dotfiles-colors/dotfiles/`. Diff
+renders first and prints safe, color unified differences against `$HOME` while
+redacting target-only contents. A real create writes the managed files into
+`$HOME` and verifies every copy. Delete is
 unsupported and unrelated home files are never removed. No credentials are
 required; `.envrc.private` remains available for future private parameters.
 
