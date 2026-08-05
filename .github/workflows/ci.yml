@@ -17,6 +17,8 @@ jobs:
         run: ./green build
       - name: Informational diff without credentials
         run: ./green diff
+        env:
+          COLORS_PAR_DOTFILES_TARGET: ${{ runner.temp }}/dotfiles-target
       - name: Dry run without credentials
         run: ./green create --dry-run
       - name: Launcher copy is synchronized

@@ -21,8 +21,9 @@ discovery paths symlink to the canonical `.agents` payload. After
 COLORS_PAR_DOTFILES_PREVENT_OVERWRITE=false ./green create
 ```
 
-Diff is read-only: it renders first, reports drift without failing, and redacts
-target-only contents. A real create overwrites the package's managed files in
+Diff is read-only: it renders first and reports drift without failing. Its
+output is unredacted, so do not publish it without reviewing it. A real create
+overwrites the package's managed files in
 `$HOME` and requires explicit authorization plus the one-run environment
 override above. Keep the
 committed guard true. `delete` is unsupported.
