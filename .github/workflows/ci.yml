@@ -1,0 +1,23 @@
+name: Validate desired state
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: DeLaGuardo/setup-clojure@13.4
+        with:
+          bb: latest
+      - name: Build without credentials
+        run: ./green build
+      - name: Dry run without credentials
+        run: ./green create --dry-run
+      - name: Launcher copy is synchronized
+        run: cmp green .agents/skills/package-dotfiles-green/green
+      - name: Generated state is not tracked
+        run: test -z "$(git ls-files .colors)"

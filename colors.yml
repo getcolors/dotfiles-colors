@@ -1,0 +1,13 @@
+# Desired state for dotfiles on the current machine. Non-secret values only.
+# The Package Skill retains both Ubuntu and macOS templates; this deployment
+# selects Ubuntu because it is intended to converge the current Ubuntu machine.
+
+profile: dotfiles-colors
+workdir: .colors
+
+dotfiles-profile: ubuntu
+dotfiles-target: "~"
+
+# Existing target files must not be overwritten unless this safeguard is
+# explicitly lifted for an intentional create at runtime.
+dotfiles-prevent-overwrite: true
